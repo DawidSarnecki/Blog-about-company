@@ -1,10 +1,6 @@
 <?php
 	$connect->query(
-	'SELECT Title, Status, Login, Text, X_UpdateTime, X_RemoveTime, X_CreateUser, blogtext.ID as blogtext_id 
-	FROM blogtext 
-	JOIN User ON blogtext.X_CreateUser = User.ID 
-	WHERE X_RemoveTime IS NOT NULL
-	ORDER BY Status DESC');
+	'SELECT * FROM archive');
 	$rows_rem = $connect->resultset();
 	?>
 	

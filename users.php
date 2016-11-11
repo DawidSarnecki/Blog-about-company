@@ -65,7 +65,7 @@ if ($_SESSION['IsAdmin']) :
 		require_once 'menu_user.php';
 		
 		foreach ($rows as $row) : ?>
-			<div>
+			<div id ="blogItem">
 			<h3><?php echo $row['Login']; ?></h3>
 				
 				<?php if ($row['IsAdmin']) : ?>

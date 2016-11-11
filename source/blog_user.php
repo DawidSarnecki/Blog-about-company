@@ -6,6 +6,7 @@
 			<h3><?php echo $row['Title']; ?></h3>
 			<h10><?php echo $row['Login'].", ".$row['X_UpdateTime']; ?></h10>
 			<p><?php echo $row['Text']; ?></p>
+			
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
 				<ul class="nav navbar-nav navbar-right">
 		<?php if ($row['X_CreateUser'] == $_SESSION['ID']): 
@@ -48,11 +49,9 @@
 				<br>
 				
 				<?php $connect->query(
-					'SELECT Author, Text, BlogComment.X_CreateTime as Time, Login
-						FROM blogcomment 
-						JOIN USER ON BlogComment.Author = USER.ID
-						WHERE BlogItemID = :blog_id
-						ORDER BY Time DESC');
+							'SELECT * FROM all_comments 
+							WHERE BlogItemID = :blog_id');
+							
 						$connect->bindValue(':blog_id', $row['blogtext_id'], PDO::PARAM_STR);
 						$comments = $connect->resultset();
 				

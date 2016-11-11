@@ -1,13 +1,7 @@
 <?php
 $connect->query(
-			'SELECT Title, Login, Text, X_UpdateTime, blogtext.ID as blogtext_id 
-			FROM blogtext 
-			JOIN User ON blogtext.X_CreateUser = User.ID 
-			WHERE Status = 1 AND X_RemoveTime IS NULL
-			ORDER BY X_UpdateTime DESC');
-			//$connect->bindValue(':limit', 5, PDO::PARAM_INT);
+			'SELECT * FROM blog_public');
 			$rows_show = $connect->resultset(); ?>
-			
 
 			<ul class="nav navbar-nav navbar-right">
 			<li><a href="login.php">logowanie</a></li>
@@ -24,11 +18,9 @@ $connect->query(
 				<p><a href="login.php"> + Dodaj komentarz</a><p>
 				
 					<?php $connect->query(
-					'SELECT Author, Text, BlogComment.X_CreateTime as Time, Login
-						FROM blogcomment 
-						JOIN USER ON BlogComment.Author = USER.ID
-						WHERE BlogItemID = :blog_id
-						ORDER BY Time DESC');
+							'SELECT * FROM all_comments 
+							WHERE BlogItemID = :blog_id');
+						
 						$connect->bindValue(':blog_id', $row['blogtext_id'], PDO::PARAM_STR);
 						$comments = $connect->resultset();
 				
