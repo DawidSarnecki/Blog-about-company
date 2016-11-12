@@ -1,14 +1,16 @@
-
+﻿
 <?php 
-  session_start();
-  require_once 'source/Connection.php';
+	//header('Content-type: text/html; charset=iso-8859-2');
+	session_start();
+	require_once 'source/Connection.php';
 	$connect = new Connection();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pl">
 <head>
- <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
 <?php
   $userstr;

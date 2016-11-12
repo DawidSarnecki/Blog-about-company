@@ -1,4 +1,4 @@
-</div>			
+﻿</div>			
 		<h2> Ostatnie wpisy </h2>
 		<?php foreach ($rows as $row) : ?>
 		

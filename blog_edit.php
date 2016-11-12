@@ -1,4 +1,4 @@
-<?php require_once 'header.php'; 
+﻿<?php require_once 'header.php'; 
 
 	$get = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 	$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

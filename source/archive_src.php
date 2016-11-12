@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	$connect->query(
 	'SELECT * FROM archive');
 	$rows_rem = $connect->resultset();

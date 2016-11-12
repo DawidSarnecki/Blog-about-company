@@ -1,4 +1,4 @@
-<?php	
+﻿<?php	
 $connect->query(
 			'SELECT * FROM all_blog');
 			$rows = $connect->resultset();

@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right">
+﻿<ul class="nav navbar-nav navbar-right">
 			<li><a>witaj:) <?php echo $userstr; ?> </a></li>
 			<li><a href="blog.php" >blog</a></li>
 			<li><a href="users.php" >użytkownicy</a></li>

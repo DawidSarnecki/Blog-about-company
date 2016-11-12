@@ -1,10 +1,10 @@
-<?php
+﻿<?php
 class Connection
 {
 	private $dbhost = 'localhost';
 	private $dbname = 'sdbm';
-	private $dbuser = 'root';
-	private $dbpass = '';
+	private $dbuser = 'admin';
+	private $dbpass = 'Admin1234';
 	
 	private $conn;
 	private $error;
@@ -20,7 +20,9 @@ class Connection
 		{
 			$this->conn = new PDO($dsn, $this->dbuser, $this->dbpass);
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//echo ('connected to database ' . $this->dbname);
+			
+			//add utf8 charset
+			$this->conn->query ('SET NAMES utf8');
 
 		}catch(PDOException $e)
 		{

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $connect->query(
 			'SELECT * FROM blog_public');
 			$rows_show = $connect->resultset(); ?>

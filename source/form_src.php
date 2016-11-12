@@ -1,4 +1,4 @@
-
+﻿
 <h2> Nowy Wpis </h2>
 			<form class="form-horizontal" role="form2" method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
 				<div class="form-group">

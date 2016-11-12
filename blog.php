@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 require_once 'header.php'; 
 require_once 'source/blog_src.php'; 
 ?>
