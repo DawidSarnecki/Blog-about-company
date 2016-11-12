@@ -45,11 +45,6 @@ class Connection
 		return $this->query->execute();
 	}
 	
-	public function lastInsertId()
-	{
-		$this->conn->lastInsertId();
-	}
-
 	public function bindValue($param, $value, $type)
 	{
 		 $this->query->bindValue($param, $value, $type);

@@ -1,12 +1,15 @@
 </div>	
 		<h2> Ostatnie wpisy </h2>
+		
 		<?php foreach ($rows as $row) : ?>
 			<div id ="blogItem">
 			<h3><?php echo $row['Title']; ?></h3>
 			<h10><?php echo $row['Login'].", ".$row['X_UpdateTime']; ?></h10>
 			<p><?php echo $row['Text']; ?></p>
+			
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
 				<ul class="nav navbar-nav navbar-right">
+				
 					<?php if ($row['Status'] == 0) : ?>
 						<li>
 						status: Ukryty
@@ -37,9 +40,8 @@
 				</ul>
 				</form>
 				<br>
-			<?php $connect->query(
-					'SELECT * FROM all_comments 
-							WHERE BlogItemID = :blog_id');
+						<?php $connect->query(
+						'SELECT * FROM all_comments WHERE BlogItemID = :blog_id');
 							
 						$connect->bindValue(':blog_id', $row['blogtext_id'], PDO::PARAM_STR);
 						$comments = $connect->resultset();
@@ -49,16 +51,20 @@
 								<?php foreach ($comments as $row) : ?>
 									<div id="comment">
 									<p><?php echo $row['Login'].", ".$row['Time']; ?></p>
-									<p><?php echo $row['Text']; ?></p>
+									<div><?php echo $row['Text']; ?></div>
 									
-									<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
+									
+									<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>"
+									
 									<ul class="nav navbar-nav navbar-right">
-										<li>
-										<input type="hidden" name="del_id" value="<?php echo $row['ID']; ?>"/>
-										<input type="submit" name="delcom" value="Usuń"/>
-										</li>
+									<li>
+									<input type="hidden" name="del_id" value="<?php echo $row['ID']; ?>"/>
+									<input type="submit" name="delcom" value="Usuń"/>
+									</li>
+									</ul>
+									</form>
 									</div>
-								<?php endforeach;
+							<?php endforeach;
 							endif; ?>			
 			</div>
 			</br>

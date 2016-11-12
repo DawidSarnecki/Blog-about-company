@@ -23,11 +23,12 @@
       echo "<h3>! Nie wszystkie pola zostały wypełnione.</h3>";
     else
     {
-		$connect->query("SELECT ID, Login, Pass, IsAdmin, IsBlocked FROM User
-        WHERE Login='$user' AND Pass='$pass'");
-			//$connect->bindValue(':limit', 5, PDO::PARAM_INT);
+		$connect->query("SELECT * FROM show_user
+        WHERE Login=:user AND Pass =:pass");
+		$connect->bindValue(':user', $user, PDO::PARAM_STR);
+		$connect->bindValue(':pass', $pass, PDO::PARAM_STR);
+		
 		$rows = $connect->resultset(); 
-				
 			//print_r($rows);
 				
       if (!$rows)
@@ -36,21 +37,15 @@
       }
 	  elseif ($rows[0]['IsBlocked'])
       {
-		echo $rows[0]['IsBlocked'];
         echo "<h3>! Konto [ ".$user. " ] zostało zablokowane. Wymagany kontakt z administratorem, e-mail: admin@blog.pl.</h3>";
       }
       else
       {
         $_SESSION['user'] = $user;
-        $_SESSION['pass'] = $pass;
 		$_SESSION['ID'] = $rows[0]['ID'];
 		$_SESSION['IsAdmin'] = $rows[0]['IsAdmin'];
 		
 		header("Location: blog.php"); 
-		/*
-        die("Jesteś zalogowany. Aby kontynuować, <a href='blog.php?view=$user'>" .
-            "kliknij tutaj</a>.<br><br>");
-			*/
       }
     }
   }

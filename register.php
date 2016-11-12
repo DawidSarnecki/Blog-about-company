@@ -8,7 +8,7 @@
   <h3>Wprowadź swoje dane, aby się zarejestrować.</h3>
 
 <?php
-  $error = $user = $pass = "";
+  $$user = $pass = "";
   if (isset($_SESSION['user'])) destroySession();
 
   if (isset($_POST['user']))
@@ -21,11 +21,12 @@
 	$salt2="^%yt";
 	$token = hash( 'whirlpool', "$salt1$pass$salt2");
 
-    if ($user == "" || $pass == "" || $email )
+    if ($user == "" || $pass == "" || $email == "" )
       echo "<h3><b> ! Nie wszystkie pola zostały wypełnione.<br></b></h3>";
     else
     {
-      $connect->query("SELECT * FROM User WHERE login='$user'");
+		$connect->query("SELECT * FROM User WHERE login=:user");
+		$connect->bindValue(':user', $user, PDO::PARAM_STR);
 		$rows = $connect->resultset(); 
 
       if ($rows)
