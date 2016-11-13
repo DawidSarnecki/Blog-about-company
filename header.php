@@ -1,6 +1,4 @@
-﻿
-<?php 
-	//header('Content-type: text/html; charset=iso-8859-2');
+﻿<?php 
 	session_start();
 	require_once 'source/Connection.php';
 	$connect = new Connection();
@@ -30,6 +28,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="source/w3s.css"> 
+  <script src="source/script.js"></script>
   <!--<link rel="stylesheet" href="bootstrap.css"> -->
 
   <style>

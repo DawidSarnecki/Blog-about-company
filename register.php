@@ -8,7 +8,7 @@
   <h3>Wprowadź swoje dane, aby się zarejestrować.</h3>
 
 <?php
-  $$user = $pass = "";
+  $user = $pass = "";
   if (isset($_SESSION['user'])) destroySession();
 
   if (isset($_POST['user']))
@@ -50,7 +50,7 @@
 				
 				  <label for="Login" class="control-label col-sm-2">Login:</label>
 				  <div class="col-sm-4">
-					<input type='text'maxlength='16' name='user'class="form-control" placeholder="login...">
+					<input type='text'maxlength='16' name='user'class="form-control" placeholder="login..." value="<?php echo $user; ?>" onBlur='checkLogin(this)'><p id='info'></p>
 					</div>
 				</div>
 				<div class="form-group">
@@ -72,7 +72,10 @@
 				</div>
 			</form>
 			</div>
-			</div>
+			</div> 
+
+			
+			
 
  
  <?php require_once 'footer.php'; ?>
