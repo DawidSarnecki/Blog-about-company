@@ -1,3 +1,10 @@
+﻿<?php 
+	session_start();
+	require_once 'source/Connection.php';
+	$connect = new Connection();
+?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,9 +24,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BLOG O firmie</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="aspect/css/w3s.css"> 
-  <script src="aspect/js/script.js"></script>
+  <link rel="stylesheet" href="source/w3s.css"> 
+  <script src="source/script.js"></script>
+  <!--<link rel="stylesheet" href="bootstrap.css"> -->
 
   <style>
 	.jumbotron{
@@ -69,47 +79,27 @@
   </style>
 </head>
 <body>
-	<div class="jumbotron"><center><img src="aspect/files/company.jpg" style="width:30%" alt="Image">
-	<h2> BLOG <i>O Firmie </i> </h2></center>
+<div class="jumbotron"><center><img src="files/company.jpg" style="width:30%" alt="Image">
+<h2> BLOG <i>O Firmie </i> </h2></center>
+</div>
+</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>		
+      </button>
+    </div>
+	<div class="collapse navbar-collapse" id="myNavbar">
+		<ul class="nav navbar-nav">
+		<li><a href="about.php">O firmie</a></li>
+		<li><a href="blog.php">Blog</a></li>
+		<li><a href="contact.php">Kontakt</a></li>
+		</ul>
 	</div>
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>		
-		  </button>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-			<li><a href="<?php echo ROOT_URL; ?>">O firmie</a></li>
-			<li><a href="<?php echo ROOT_URL; ?>blog">Blog</a></li>
-			<li><a href="<?php echo ROOT_URL; ?>contact">Kontakt</a></li>
-			</ul>
-		</div>
-	  </div>
-	</nav>
-	
-	<div class="container">
-	<div class="row">
-	
-	<?php require($view); ?>
-	
-	</div>
-	</div>
-	<footer class="container-fluid text-center">
-		<p>Copyright Dawid Sarnecki 2016</p>  
-	</footer>
-</body>
-</html>
-	
-
-
-
-
-
-
-
+  </div>
+</nav>
 
 

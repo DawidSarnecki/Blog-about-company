@@ -1,17 +1,16 @@
 ﻿<?php
 /*********************************************************** 
 * Class name:
-*    ContactModel
+*    HomeModel
 * Descripton:
 *    extends Model abstract class
 **********************************************************/
 
-class ContactModel extends Model
+class HomeModel extends Model
 {
 	/*********************************************************** 
 	* Public members
-	************************************************************/ 
-	
+	************************************************************/ 	
 	public function Index()
 	{
 		return;

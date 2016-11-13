@@ -1,12 +1,12 @@
 ﻿<?php
 /*********************************************************** 
 * Class name:
-*    Contact
+*    Home
 * Descripton:
 *    Extends Controller
 **********************************************************/
 
-class Contact extends Controller
+class Home extends Controller
 {
 	
 	/*********************************************************** 
@@ -14,7 +14,7 @@ class Contact extends Controller
 	************************************************************/  
 	
 	protected function Index(){
-		$viewmodel = new ContactModel();
+		$viewmodel = new HomeModel();
 		$this->returnView($viewmodel->Index(), true);
 	}
 }
