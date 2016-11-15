@@ -13,6 +13,9 @@ https://www.udemy.com/learn-object-oriented-php-by-building-a-complete-website/
 * Contact:
 *      @
 ***********************************************************************/  
+// Start Session
+
+session_start();
 
 require ('config.php');
 
@@ -29,6 +32,8 @@ require('controllers/user.php');
 require('models/home.php');
 require('models/blog.php');
 require('models/contact.php');
+require('models/user.php');
+require('aspect/ajax/login_check.php');
 
 $bootstrap = new Bootstrap($_GET);
 $controller = $bootstrap->createController();

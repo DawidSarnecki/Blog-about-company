@@ -5,7 +5,7 @@
 * Descripton:
 *    Extends Controller
 **********************************************************/
-class Users extends Controller
+class User extends Controller
 {
 	/*********************************************************** 
 	* Protected members

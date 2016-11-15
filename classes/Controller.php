@@ -27,15 +27,13 @@ abstract class Controller
 	/*********************************************************** 
 	* Public members
 	************************************************************/ 
-	
 	public function executeAction(){
 		return $this->{$this->action}();
 	}
 
 	/*********************************************************** 
 	* Protected members
-	************************************************************/ 
-	
+	************************************************************/ 	
 	protected function returnView($viewmodel, $fullview){
 		$view = 'views/'. get_class($this). '/' . $this->action. '.php';
 		if($fullview){

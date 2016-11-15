@@ -14,10 +14,57 @@ class BlogModel extends Model
 	public function Index(){
 		$this->query('SELECT * FROM blog_public');
 		$rows = $this->resultSet();
-		
 		//print_r($rows);
 		return $rows;
 	}
+	
+	
+	  public function get_comments($text_id)
+    {        
+        //connect to database
+        $this->db->connect();
+
+        //sanitize data
+        $var1 = $this->db->escape($var1);
+        $var2 = $this->db->escape($var2);
+        $cond = $cond1.$var1."'"; 
+        $cond.= " ".$cond2." ".$var2;  
+
+        //prepare query
+        $this->db->prepare
+        (
+            "
+            SELECT *  FROM `comments`
+            WHERE $cond
+            ;
+            "
+        );
+
+        //execute query
+        $this->query();
+        $resultArr[0] = 0;
+        $i = 1;
+        while( $result = $this->db->fetch('array')){
+            $resultArr[$i] = $result;
+            $i++;
+        }
+        $resultArr[0] = $i;
+
+        return $resultArr;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/*********************************************************** 
 	* Public members
@@ -40,6 +87,7 @@ class BlogModel extends Model
 			$connect->bindValue(':body', $body);
 			$connect->bindValue(':user', $user_id);
 			$connect->execute();
+		
 			
 			// Verify
 			if($this->lastInsertId())
